@@ -25,6 +25,7 @@ export const ActivityDashboard = ({activities, selectedActivity, selectActivity,
           activities={activities}
           selectActivity={selectActivity}
           deleteActivity={deleteActivity}
+          submitting={submitting}
         />
       </Grid.Column>
       <GridColumn width={6}>
