@@ -22,7 +22,7 @@ namespace API.Middlewares
             _env = env;
         }
 
-        public async Task InovkeAsync(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             try
             {
