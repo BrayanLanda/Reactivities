@@ -11,7 +11,7 @@ export default class UserStore {
         makeAutoObservable(this)
     }
 
-    get isLoggedIn(){
+    get isLoggedIn() {
         return !!this.user;
     }
 
@@ -24,6 +24,21 @@ export default class UserStore {
             store.modalStore.closeModal();
         } catch (error) {
             throw error;
+        }
+    }
+
+    logout = () => {
+        store.commonStore.setToken(null);
+        this.user = null;
+        router.navigate('/');
+    }
+
+    getUser = async () => {
+        try {
+            const user = await agent.Account.current();
+            runInAction(() => this.user = user);
+        } catch (error) {
+            console.log(error);
         }
     }
 }
